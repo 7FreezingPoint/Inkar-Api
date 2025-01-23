@@ -19,6 +19,14 @@ class GitHubConfig(BaseModel):
     github_personal_token: str = ""
 
 
+class QiniuConfig(BaseModel):
+    access_key: str
+    secret_key: str
+    bucket_name: str
+    prefix: str
+    domain: str
+
+
 class Jx3API(BaseModel):
     token: str
     token_v2: str = ""
