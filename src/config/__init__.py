@@ -56,6 +56,7 @@ class Hidden(BaseModel):
 class config(BaseModel):
     bot_basic: BotBasic
     github: GitHubConfig
+    qiniu: QiniuConfig
     jx3: Jx3Config
     hidden: Hidden
 
