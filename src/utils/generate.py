@@ -83,8 +83,9 @@ class ScreenshotGenerator:
             cls._context = None
         if cls._browser:
             await cls._browser.close()
-            await cls._playwright.stop() # type: ignore
             cls._browser = None
+        if cls._playwright:
+            await cls._playwright.stop()
             cls._playwright = None
 
     async def generate(self, config: ScreenshotConfig, page_source: str):
