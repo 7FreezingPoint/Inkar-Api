@@ -5,6 +5,7 @@ from src.const.path import ASSETS, build_path
 from src.utils.network import Request
 from src.utils.time import Time
 from src.utils.generate import generate
+from src.utils.oss import upload_to_qiniu
 from src.templates import SimpleHTML, get_saohua
 
 from ._template import template_monsters
@@ -80,4 +81,4 @@ async def get_monsters_map():
         )
     )
     image = await generate(html, ".m-bmap.is-map-phone")
-    return image
+    return upload_to_qiniu(image)
