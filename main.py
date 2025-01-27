@@ -9,6 +9,7 @@ from src.plugins.jx3.trade import api as trade_api
 from src.plugins.jx3.recruit import api as recruit_api
 from src.plugins.jx3.pvp import api as pvp_api
 from src.plugins.jx3.serendipity import v3 as serendipity_v3_api
+from src.plugins.jx3.dungeon import monster as dungeon_monster_api
 # from src.plugins.jx3.gold import api as gold_api
 # from src.plugins.jx3.sandbox import api as sandbox_api
 
@@ -53,6 +54,12 @@ async def arean_record():
 @app.route('/serendipity', methods=['POST'])
 async def serendipity():
     img = await serendipity_v3_api.get_serendipity_image_v3(await request.get_json())
+    return img
+
+# 百战
+@app.route('/monster', methods=['POST'])
+async def monster():
+    img = await dungeon_monster_api.get_monsters_map()
     return img
 
 # # 金价
