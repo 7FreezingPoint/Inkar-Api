@@ -10,7 +10,7 @@ from src.plugins.jx3.recruit import api as recruit_api
 from src.plugins.jx3.pvp import api as pvp_api
 from src.plugins.jx3.serendipity import v3 as serendipity_v3_api
 from src.plugins.jx3.dungeon import monster as dungeon_monster_api
-# from src.plugins.jx3.gold import api as gold_api
+from src.plugins.jx3.gold import api as gold_api
 # from src.plugins.jx3.sandbox import api as sandbox_api
 
 app = Quart(__name__)
@@ -62,11 +62,11 @@ async def monster():
     img = await dungeon_monster_api.get_monsters_map()
     return img
 
-# # 金价
-# @app.route('/gold', methods=['POST'])
-# async def gold():
-#     img = await gold_api.get_coin_price_image(await request.get_json())
-#     return img
+# 金价
+@app.route('/gold', methods=['POST'])
+async def gold():
+    img = await gold_api.get_coin_price_image(await request.get_json())
+    return img
 
 # # 沙盘
 # @app.route('/sandbox', methods=['POST'])
