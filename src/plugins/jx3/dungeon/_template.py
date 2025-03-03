@@ -86,6 +86,15 @@ template_monsters = """
 </div>
 """
 
+template_role_monsters = """
+<div class="el-tooltip">
+    <div class="u-img"><img src="{{ icon }}" class="u-effect"></div>
+    <div class="u-index"><span class="u-index-number">{{ level }}</span></div>
+    <div class="u-name">{{ name }}</div>
+    <div class="u-elite"></div>
+</div>
+"""
+
 headers = {
     "Accept": "application/json, text/javascript, */*; q=0.01",
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
