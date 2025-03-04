@@ -8,7 +8,7 @@ from src.templates import SimpleHTML, get_saohua
 from ._template import template_role_monsters
 
 async def get_role_monsters_map(data):
-    content = ["<div class=\"u-row\">"]
+    content = []
     for i in range(len(data["skillList"])):
         skill = data["skillList"][i]
         icon = f"https://icon.jx3box.com/icon/{skill["iconId"]}.png"
@@ -25,7 +25,11 @@ async def get_role_monsters_map(data):
             "role_monster.html",
             font = build_path(ASSETS, ["font", "PingFangSC-Medium.otf"]),
             table_content = "\n".join(content),
-            application_name = f"{msg}"
+            gameEnergy = data["gameEnergy"],
+            gameStamina = data["gameStamina"],
+            server = data["serverName"],
+            name = data["roleName"],
+            msg = get_saohua()
         )
     )
     image = await generate(html, ".m-bmap.is-map-phone")

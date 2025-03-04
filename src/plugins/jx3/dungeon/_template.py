@@ -87,11 +87,10 @@ template_monsters = """
 """
 
 template_role_monsters = """
-<div class="el-tooltip">
-    <div class="u-img"><img src="{{ icon }}" class="u-effect"></div>
-    <div class="u-index"><span class="u-index-number">{{ level }}</span></div>
-    <div class="u-name">{{ name }}</div>
-    <div class="u-elite"></div>
+<div class="item">
+    <img class="item-icon" src="{{ icon }}">
+    <div class="item-level">{{ level }}</div>
+    <div class="item-name">{{ name }}</div>
 </div>
 """
 
