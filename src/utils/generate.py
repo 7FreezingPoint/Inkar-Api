@@ -9,7 +9,6 @@ from typing import Any, Literal, overload
 
 from src.const.path import CACHE, build_path
 from src.utils.file import write
-from src.utils.network import Request
 from src.utils.decorators import time_record
 
 import uuid
