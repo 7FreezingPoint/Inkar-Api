@@ -262,23 +262,22 @@
             <div class="u-icon" style="left: 326px; top: 222px;">
                 <div><img class="i-icon $扶风郡" src="https://img.jx3box.com/image/camp/?01.png"></div>
             </div>
-            <div class="footer">&copy; Inkar Suki</div>
         </div>
     </div>
     <script>
         document.querySelectorAll(".u-pic").forEach(function (img) {
             let src = img.getAttribute("src");
-            if (img.classlist.contains("eren")) {
+            if (img.classList.contains("eren")) {
                 img.src = src.replace("?", "e");
-            } else if (img.classlist.contains("haoqi")) {
+            } else if (img.classList.contains("haoqi")) {
                 img.src = src.replace("?", "h");
             }
         });
         document.querySelectorAll(".i-icon").forEach(function (img) {
             let src = img.getAttribute("src");
-            if (img.classlist.contains("eren")) {
+            if (img.classList.contains("eren")) {
                 img.src = src.replace("?", "e");
-            } else if (img.classlist.contains("haoqi")) {
+            } else if (img.classList.contains("haoqi")) {
                 img.src = src.replace("?", "h");
             }
         });
