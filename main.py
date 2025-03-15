@@ -88,7 +88,6 @@ async def sandbox():
     img = await sandbox_api.get_sandbox_image(await request.get_json())
     return img
 
-
 # 在应用关闭时关闭浏览器
 @app.after_serving
 async def cleanup_browser(exception=None):
