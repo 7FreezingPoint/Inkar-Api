@@ -89,7 +89,6 @@ async def sandbox():
     return img
 
 
-
 # 在应用关闭时关闭浏览器
 @app.after_serving
 async def cleanup_browser(exception=None):
