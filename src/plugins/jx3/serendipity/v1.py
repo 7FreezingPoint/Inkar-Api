@@ -9,6 +9,6 @@ async def get_preposition(name: str = ""):
             id = i["id"]
             flag = True
     if not flag:
-        return False
+        return "没有找到相关奇遇信息~"
     final_url = "https://jx3box.com/adventure/" + str(id)
-    return f"【{name}】魔盒攻略：\n{final_url}"
+    return f"【{name}】攻略：\n{final_url}"
