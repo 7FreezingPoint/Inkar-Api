@@ -79,7 +79,7 @@ async def monster():
     img = await dungeon_monster_api.get_monsters_map()
     return img
 
-# 百战
+# 精耐
 @app.route('/role/monster', methods=['POST'])
 async def role_monster():
     img = await dungeon_role_monster_api.get_role_monsters_map(await request.get_json())
