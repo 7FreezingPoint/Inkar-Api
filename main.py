@@ -22,6 +22,7 @@ app = Quart(__name__)
 async def initialize_browser():
     await ScreenshotGenerator.launch()
 
+
 # # 公告
 # @app.route('/announce', methods=['POST'])
 # async def announce():
