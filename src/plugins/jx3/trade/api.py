@@ -83,14 +83,14 @@ async def get_data(data) -> dict:
                     date=item["date"],
                     server=item["server"],
                     price=price,
-                    sales=sales_mapping.get(item["sales"], "未知"),
+                    sales=sales_mapping.get(item["sale"], "未知"),
                 )
             )
         full_table[zone] = "\n".join(table)
     return full_table
 
 async def get_single_item_price(data):
-    aijx3_data = await get_data(data["data"])
+    aijx3_data = await get_data(data["list"])
 
     prices, dates = await get_item_history(data["name"])
     max, min = select_min_max(prices)
