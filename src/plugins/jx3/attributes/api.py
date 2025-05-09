@@ -23,7 +23,21 @@ from .mobile_attr import mobile_attribute_calculator
 
 
 async def random_wujie_qixue(kungfu: str) -> tuple[list[str], list[str]]:
-    wujie_index: list[dict[str, str]] = (await Request("https://data.jx3box.com/talent/wujie/index.json").get()).json()
+    # wujie_index: list[dict[str, str]] = (await Request("https://data.jx3box.com/talent/wujie/index.json").get()).json()
+    wujie_index: list[dict[str, str]] = [
+        {
+            "version": "v20250417",
+            "name": "太极秘录"
+        },
+        {
+            "version": "v20250217",
+            "name": "丝路风语"
+        },
+        {
+            "version": "v20240819",
+            "name": "雾海寻龙"
+        }
+    ]
     for version_data in wujie_index:
         if version_data["name"].find("体服") == -1:
             version_key = version_data["version"]

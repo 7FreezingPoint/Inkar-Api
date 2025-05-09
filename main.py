@@ -9,6 +9,8 @@ from src.plugins.jx3.detail import detail as detail_api
 from src.plugins.jx3.trade import api as trade_api
 from src.plugins.jx3.recruit import api as recruit_api
 from src.plugins.jx3.pvp import api as pvp_api
+from src.plugins.jx3.horse import api as horse_api
+from src.plugins.jx3.serendipity import v1 as serendipity_v1_api
 from src.plugins.jx3.serendipity import v3 as serendipity_v3_api
 from src.plugins.jx3.dungeon import monster as dungeon_monster_api
 from src.plugins.jx3.dungeon import role_monster as dungeon_role_monster_api
@@ -53,6 +55,19 @@ async def arean_record():
     img = await pvp_api.get_arena_record(await request.get_json())
     return img
 
+# 马场
+@app.route('/horse', methods=['POST'])
+async def horse():
+    img = await horse_api.get_horse_next_spawn(await request.get_json())
+    return img
+
+# 奇遇攻略
+@app.route('/preposition', methods=['POST'])
+async def preposition():
+    data = await request.get_json()
+    img = await serendipity_v1_api.get_preposition(data["name"])
+    return img
+
 # 奇遇查询
 @app.route('/serendipity', methods=['POST'])
 async def serendipity():
@@ -65,7 +80,7 @@ async def monster():
     img = await dungeon_monster_api.get_monsters_map()
     return img
 
-# 百战
+# 精耐
 @app.route('/role/monster', methods=['POST'])
 async def role_monster():
     img = await dungeon_role_monster_api.get_role_monsters_map(await request.get_json())

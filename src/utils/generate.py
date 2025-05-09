@@ -66,7 +66,6 @@ class ScreenshotGenerator:
     _context: BrowserContext | Any = None
     _playwright: Any | None = None
 
-
     @classmethod
     async def launch(cls):
         if cls._browser is None:
