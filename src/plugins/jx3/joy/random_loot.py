@@ -51,7 +51,7 @@ class RandomLoot:
             return None
         list_all_file = CONST + "/cache/random_loot_list_all.json"
         if os.path.exists(list_all_file):
-            data = cast(dict, read(list_all_file, True))
+            data = cast(dict, read(list_all_file))
         else:
             url = "https://m.pvp.xoyo.com/dungeon/list-all"
             data = (await Request(url).post(tuilan=True)).json()
