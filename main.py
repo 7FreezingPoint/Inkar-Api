@@ -16,6 +16,8 @@ from src.plugins.jx3.dungeon import monster as dungeon_monster_api
 from src.plugins.jx3.dungeon import role_monster as dungeon_role_monster_api
 from src.plugins.jx3.gold import api as gold_api
 from src.plugins.jx3.sandbox import api as sandbox_api
+from src.plugins.jx3.joy.random_loot import RandomLoot
+from src.plugins.jx3.joy import random_shilian as random_shilian_api
 
 app = Quart(__name__)
 
@@ -104,6 +106,20 @@ async def sandbox():
     img = await sandbox_api.get_sandbox_image(await request.get_json())
     return img
 
+# 模拟掉落
+@app.route('/random/loot', methods=['POST'])
+async def random_loot():
+    data = await request.get_json()
+    instance = await RandomLoot.with_map_name(data["mapName"], data["mode"])
+    if instance is None:
+        return "副本名称或难度输入错误"
+    return await instance.generate()
+
+# 模拟试炼
+@app.route('/random/shilian', methods=['POST'])
+async def random_shilian():
+    data = await request.get_json()
+    return await random_shilian_api.generate_shilian_box(data["level"], data["chose"])
 
 # 在应用关闭时关闭浏览器
 @app.after_serving

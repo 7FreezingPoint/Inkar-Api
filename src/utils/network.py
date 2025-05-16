@@ -1,10 +1,13 @@
 from urllib.request import urlopen
 
+from src.const.path import CONST
 from src.utils.exceptions import RequestDataException
 from src.utils.decorators import ticket_required
 from src.utils.tuilan import generate_x_sk, generate_timestamp, format_request_body
+from src.utils.file import write
 
 import httpx
+import os
 
 class Request:
     def __init__(self, url: str, *, headers: dict = {}, params: str | dict = {}):
@@ -120,3 +123,20 @@ class Request:
             "headers": basic_headers
         }
         return request_params
+
+async def cache_image(url: str):
+    if url.startswith("https://q.qlogo.cn"):
+        return url
+
+    if not url.startswith("http"):
+        return url
+    else:
+        name = url.split("/")[-1].split("?v=2")[0]
+        if os.path.exists(CONST + "/cache/icons/" + name):
+            return CONST + "/cache/icons/" + name
+        write(
+            CONST + "/cache/icons/" + name,
+            (await Request(url).get()).content,
+            "wb"
+        )
+        return CONST + "/cache/icons/" + name

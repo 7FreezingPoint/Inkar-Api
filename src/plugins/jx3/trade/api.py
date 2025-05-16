@@ -7,7 +7,7 @@ from src.utils.file import read
 from src.utils.generate import generate
 from src.utils.oss import upload_to_qiniu
 
-from ._template import headers, template_wujia
+from ._template import headers, template_wujia, template_msgbox, template_table
 
 import datetime
 import json
