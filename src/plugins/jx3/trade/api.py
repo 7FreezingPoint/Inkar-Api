@@ -25,7 +25,7 @@ async def get_item_history(standard_name: str) -> tuple[list[int], list[str]]:
         "endTime": Time(current_timestamp).format("%Y-%m-%d"), 
         "startTime": Time(start_timestamp).format("%Y-%m-%d")
     }
-    data = await query_aijx3_data("https://www.aijx3.cn/api/wj/goods/getAvgGoodsPriceRecord", params=params)
+    # data = await query_aijx3_data("https://www.aijx3.cn/api/wj/goods/getAvgGoodsPriceRecord", params=params)
     # data = data["data"]
     data = []
     dates = []
