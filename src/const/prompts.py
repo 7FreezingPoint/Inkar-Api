@@ -12,6 +12,8 @@ class PROMPT:
     NumberNotExist = "唔……输入的数字不在范围内哦，请检查后重试！"
     PlayerNotExist = "唔……未找到该玩家，请提交角色！\n提交角色 服务器 UID"
 
+    EquipNotFound = "唔……未找到该玩家的装备，请检查信息是否正确？\n如有标签，请先尝试去除标签查询。"
+
     KungfuNotExist = "未找到该心法，请检查后重试！"
 
     # jx3/achievement
@@ -43,3 +45,6 @@ class PROMPT:
 
     # jx3/penzai
     NoCondition = "您没有输入条件哦，请检查后重试~\n条件以空格分割哦~"
+
+    # jx3/rank
+    SchoolInvalid = "唔……门派不正确，请检查门派名称！"
