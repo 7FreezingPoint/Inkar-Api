@@ -4,7 +4,7 @@ from src.utils.generate import (
     ScreenshotGenerator
 )
 # from src.plugins.jx3.announce import api as announce_api
-from src.plugins.jx3.attributes import api as attributes_api
+from src.plugins.jx3.attributes import api1 as attributes_api
 from src.plugins.jx3.detail import detail as detail_api
 from src.plugins.jx3.trade import api as trade_api
 from src.plugins.jx3.recruit import api as recruit_api
